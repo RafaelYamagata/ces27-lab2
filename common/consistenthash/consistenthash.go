@@ -19,7 +19,13 @@ type Ring struct {
 // includes the hashed value of key.
 func (r *Ring) search(key string) int {
     /////////////////////////
-    // YOUR CODE GOES HERE //
+    i := 0
+    for _, node := range r.Nodes {
+        if hashId(node.Id) >= hashId(key) {
+            return i
+        }
+        i++
+    }
     /////////////////////////
 
     return 0
